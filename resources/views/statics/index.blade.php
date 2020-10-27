@@ -1,2 +1,4 @@
 @extends('layouts.app')
-<p> chuj </p>
+
+@section('content')
+@endsection
