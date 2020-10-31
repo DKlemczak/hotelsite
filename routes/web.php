@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('statics.index');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', "App\Http\Controllers\StaticController@index")->name("index");
+
+Route::get('/offer', "App\Http\Controllers\OfferController@index")->name("offer");
