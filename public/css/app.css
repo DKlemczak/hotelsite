@@ -10903,3 +10903,95 @@ a.text-dark:focus {
   }
 }
 
+.content {
+  position: relative;
+  margin-top: 12px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: auto;
+  max-width: 1140px;
+  padding-top: 90px;
+  padding-bottom: 120px;
+  border: 0px solid;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+}
+.kapsle{
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: auto;
+}
+.indi_room{
+  position: relative;
+  background-color: #f5f5f5;
+  margin-bottom: 100px;
+  margin-right: 20%;
+  height: 650px;
+  width: 80%;
+}
+.room_info{
+  font-family: proxima-nova,Helvetica,Arial,sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.room_img{
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+}
+.wholesite{
+  background-color: #fff;
+}
+.banner{
+  background-color: #000;
+}
+.bannertxt{
+  justify-content: center;
+  background-color: #000;
+  opacity: 50%;
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  padding: 20px;
+  text-transform: uppercase;
+  font-family: 'Lucida Sans';
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 1);
+}
+.bannerimg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 400px;
+  background-image: url('https://i.imgur.com/UtwHttC.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.description{
+  padding: 20px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  font-size: 22px;  
+  display: flex;
+}
+.roomspace{
+  font-size: 16px;  
+  display: flex;
+}
+.priceperday{
+  color: white;
+  background-color: #753c52;
+  padding:10px;
+  text-align: center;
+  font-size: 20px;  
+  width:200px;
+}
+.room_details{
+  color:Black;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
