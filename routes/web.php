@@ -18,3 +18,4 @@ Auth::routes();
 Route::get('/', "App\Http\Controllers\StaticController@index")->name("index");
 
 Route::get('/offer', "App\Http\Controllers\OfferController@index")->name("offer");
+Route::get('/offer/{id}',"App\Http\Controllers\OfferController@details")->name("offer.details");

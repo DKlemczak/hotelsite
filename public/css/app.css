@@ -10914,7 +10914,6 @@ a.text-dark:focus {
   padding-bottom: 120px;
   border: 0px solid;
   border-radius: 12px;
-  background-color: #f5f5f5;
 }
 .kapsle{
   margin-right: auto;
@@ -10926,7 +10925,6 @@ a.text-dark:focus {
   background-color: #f5f5f5;
   margin-bottom: 100px;
   margin-right: 20%;
-  height: 650px;
   width: 80%;
 }
 .room_info{
@@ -10985,6 +10983,12 @@ a.text-dark:focus {
   text-align: center;
   font-size: 20px;  
   width:200px;
+}
+
+.priceperday:hover, .priceperday a:hover{
+  color: white;
+  text-decoration: none;
+
 }
 .room_details{
   color:Black;
