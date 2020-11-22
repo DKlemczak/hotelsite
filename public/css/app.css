@@ -10928,7 +10928,6 @@ a.text-dark:focus {
   width: 80%;
 }
 .room_info{
-  font-family: proxima-nova,Helvetica,Arial,sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -10968,12 +10967,10 @@ a.text-dark:focus {
 .description{
   padding: 20px;
   padding-bottom: 5px;
-  padding-left: 0px;
-  font-size: 22px;  
+  padding-left: 0px;  
   display: flex;
 }
-.roomspace{
-  font-size: 16px;  
+.roomspace{ 
   display: flex;
 }
 .priceperday{
@@ -10998,4 +10995,15 @@ a.text-dark:focus {
   position: absolute;
   bottom: 5px;
   right: 5px;
+}
+.color{
+  background-color: #753c52;
+}
+.offer{
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.text_justify{
+  text-align: justify !important;
+  text-justify: inter-word;
 }
