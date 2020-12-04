@@ -58,7 +58,7 @@
         <div class="h3 mt-5 mb-4" style="border-bottom: 1px solid #753c52; width: 100%">Komentarze</div>
         @foreach($room->comments as $comment)
         <div class=" mt-5 mb-2 ml-2">
-            <strong>oi{!! $comment->name !!}</strong>
+            <strong>{!! $comment->user->name !!}</strong>
         </div>
         <div class="shadow m-1 p-2"> 
             {!! $comment->comment !!}

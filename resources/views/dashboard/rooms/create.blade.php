@@ -18,7 +18,7 @@
         <div class="row no-gutters mb-4">
             <label for="roomtypes_id" class="col-form-label">Typ pokoju: </label>
             <div>
-                <input id="roomtypes_id" type="number" class="form-control" name="roomtypes_id" value="" required>
+                <input id="roomtypes_id" type="number" class="form-control" name="roomtypes_id" min="1" value="" required>
                 @if ($errors->has('roomtypes_id'))
                     <span class="help-block">
                         <strong>{{ $errors->first('roomtypes_id') }}</strong>
