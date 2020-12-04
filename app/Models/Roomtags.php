@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Roomtags extends Model
 {
+    public $timestamps = false;
+    protected $table = 'roomtags';
+    
     public function roomtypes()
     {
         return $this->belongsToMany('App\Models\Roomtypes','tagstoroomtype');
