@@ -13,4 +13,9 @@ class Roomtypes extends Model
     {
         return $this->belongsToMany('App\Models\Roomtags');
     }
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

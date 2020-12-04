@@ -33,7 +33,7 @@
                 {!! $room->DescriptionLong !!}
             </div>
         </div>
-        <div class="col-3 text-right pt-3">
+        <div class="col-3 text-right pt-3 mb-3">
             <div class="h5 mb-0">
                 <strong>{!! $room->PricePerDay !!} zł</strong>
             </div>
@@ -46,10 +46,24 @@
                     <div class="pl-1">{!! $room->RoomSpace !!} os.</div>
                 </div>
             </div>
+            <div class="text-left h5">Wyposarzenie pokoju</div>
             @foreach($room->roomtags as $tag)
-            {!! $tag->Name !!}
-            @endforeach
+            <div class="d-flex color shadow text-white m-1 pl-1"> 
+                {!! $tag->Name !!}
+            </div>    
+            @endforeach    
         </div>
+    </div>
+    <div>
+        <div class="h3 mt-5 mb-4" style="border-bottom: 1px solid #753c52; width: 100%">Komentarze</div>
+        @foreach($room->comments as $comment)
+        <div class=" mt-5 mb-2 ml-2">
+            <strong>oi{!! $comment->name !!}</strong>
+        </div>
+        <div class="shadow m-1 p-2"> 
+            {!! $comment->comment !!}
+        </div>    
+         @endforeach 
     </div>
 </section>
 @endsection
