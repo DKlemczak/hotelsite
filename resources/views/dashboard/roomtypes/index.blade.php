@@ -22,6 +22,12 @@
                 <div class="col-2">
                     <span class="text-center">{!! $roomtype->PricePerDay !!} zł</span>
                 </div>
+                <div class="col-1">
+                    <button class="btn"><a href="{{ route('dashboard.roomtypes.roomtags_roomtypes.index', $roomtype->id) }}">Tagi</a></button>
+                </div>
+                <div class="col-1">
+                    <button class="btn"><a href="{{ route('dashboard.roomtypes.roomtype_attachments.index', $roomtype->id) }}">Zdjęcia</a></button>
+                </div>
                 <div class="col-2">
                     <button class="btn"><a href="{{ route('dashboard.roomtypes.edit', $roomtype->id) }}">Edytuj</a></button>
                 </div>

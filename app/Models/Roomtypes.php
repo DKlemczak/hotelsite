@@ -11,11 +11,21 @@ class Roomtypes extends Model
 
     public function roomtags()
     {
-        return $this->belongsToMany('App\Models\Roomtags');
+        return $this->belongsToMany(Roomtags::class);
     }
-    
+
+    public function rooms()
+    {
+        return $this->hasMany(Rooms::class);
+    }
+
     public function comments()
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
+    }
+
+    public function attachments()
+    {
+        return $this->hasMany(Roomtype_attachments::class);
     }
 }

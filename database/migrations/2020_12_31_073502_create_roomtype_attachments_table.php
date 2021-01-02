@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoomsTable extends Migration
+class CreateRoomtypeAttachmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('roomtype_attachments', function (Blueprint $table) {
             $table->id();
-            $table->integer('Number')->unique();
+            $table->text('data_uri');
             $table->unsignedBigInteger('roomtypes_id');
             $table->foreign('roomtypes_id')->references('id')->on('roomtypes');
         });
@@ -28,6 +28,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('roomtype_attachments');
     }
 }

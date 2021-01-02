@@ -18,7 +18,11 @@
         <div class="row no-gutters mb-4">
             <label for="roomtypes_id" class="col-form-label">Typ pokoju: </label>
             <div>
-                <input id="roomtypes_id" type="number" class="form-control" name="roomtypes_id" min="1" value="" required>
+                <select name="roomtypes_id" required>
+                    @foreach ($roomtypes as $roomtype)
+                        <option value="{!! $roomtype->id !!}">{!! $roomtype->Name !!}</option>
+                    @endforeach
+                </select>
                 @if ($errors->has('roomtypes_id'))
                     <span class="help-block">
                         <strong>{{ $errors->first('roomtypes_id') }}</strong>

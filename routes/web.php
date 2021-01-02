@@ -23,14 +23,28 @@ Route::get('/offer/{id}',"App\Http\Controllers\OfferController@details")->name("
 Route::group(['middleware' => 'admin'], function ()
 {
     Route::get("/dashboard", "App\Http\Controllers\Dashboard\DashboardController@index")->name('dashboard');
-    Route::resource('dashboard/roomtypes', 'App\Http\Controllers\Dashboard\RoomTypesController', ['except'=>['show'], 'names' => [
+    Route::resource('dashboard/roomtypes', 'App\Http\Controllers\Dashboard\RoomtypesController', ['except'=>['show'], 'names' => [
         'index'   => 'dashboard.roomtypes.index',
         'create'  => 'dashboard.roomtypes.create',
         'store'   => 'dashboard.roomtypes.store',
         'edit'    => 'dashboard.roomtypes.edit',
         'update'  => 'dashboard.roomtypes.update',
         'destroy' => 'dashboard.roomtypes.destroy'
-    ]], ['except' => ['show']]);
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
+
+    Route::resource('dashboard/roomtypes/{roomtype_id}/roomtags_roomtypes', 'App\Http\Controllers\Dashboard\Roomtags_roomtypesController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.roomtypes.roomtags_roomtypes.index',
+        'create'  => 'dashboard.roomtypes.roomtags_roomtypes.create',
+        'store'   => 'dashboard.roomtypes.roomtags_roomtypes.store',
+        'destroy' => 'dashboard.roomtypes.roomtags_roomtypes.destroy'
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
+
+    Route::resource('dashboard/roomtypes/{roomtype_id}/roomtype_attachments', 'App\Http\Controllers\Dashboard\RoomtypeAttachmentsController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.roomtypes.roomtype_attachments.index',
+        'create'  => 'dashboard.roomtypes.roomtype_attachments.create',
+        'store'   => 'dashboard.roomtypes.roomtype_attachments.store',
+        'destroy' => 'dashboard.roomtypes.roomtype_attachments.destroy'
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
 
     Route::resource('dashboard/roomtags', 'App\Http\Controllers\Dashboard\RoomTagsController', ['except'=>['show'], 'names' => [
         'index'   => 'dashboard.roomtags.index',
@@ -39,7 +53,7 @@ Route::group(['middleware' => 'admin'], function ()
         'edit'    => 'dashboard.roomtags.edit',
         'update'  => 'dashboard.roomtags.update',
         'destroy' => 'dashboard.roomtags.destroy'
-    ]], ['except' => ['show']]);
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
 
     Route::resource('dashboard/rooms', 'App\Http\Controllers\Dashboard\RoomsController', ['except'=>['show'], 'names' => [
         'index'   => 'dashboard.rooms.index',
@@ -48,5 +62,5 @@ Route::group(['middleware' => 'admin'], function ()
         'edit'    => 'dashboard.rooms.edit',
         'update'  => 'dashboard.rooms.update',
         'destroy' => 'dashboard.rooms.destroy'
-    ]], ['except' => ['show']]);
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
 });

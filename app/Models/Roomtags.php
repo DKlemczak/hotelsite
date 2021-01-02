@@ -8,9 +8,9 @@ class Roomtags extends Model
 {
     public $timestamps = false;
     protected $table = 'roomtags';
-    
+
     public function roomtypes()
     {
-        return $this->belongsToMany('App\Models\Roomtypes','tagstoroomtype');
+        return $this->belongsToMany(Roomtypes::class,'tagstoroomtype');
     }
 }

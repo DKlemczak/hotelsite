@@ -15,7 +15,7 @@ class CreateRoomtagsTable extends Migration
     {
         Schema::create('roomtags', function (Blueprint $table) {
             $table->id();
-            $table->text("Name");
+            $table->text("Name")->unique();
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Rooms;
+use App\Models\RoomTypes;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -11,19 +12,21 @@ class RoomsController extends Controller
 {
     public function index()
     {
-        $rooms = DB::table('rooms')->get();
+        $rooms = Rooms::get();
         return view('dashboard.rooms.index', ['rooms' => $rooms]);
     }
 
     public function create()
     {
-        return view('dashboard.rooms.create');
+        $roomtypes = RoomTypes::get();
+        return view('dashboard.rooms.create')->with(['roomtypes' => $roomtypes]);
     }
 
     public function edit($id)
     {
-        $room = DB::table('rooms')->where('id', $id)->first();
-        return view('dashboard.rooms.edit')->with(['room' => $room]);
+        $room = Rooms::where('id', $id)->first();
+        $roomtypes = RoomTypes::get();
+        return view('dashboard.rooms.edit')->with(['room' => $room,'roomtypes' => $roomtypes]);
     }
 
     public function store(Request $request)

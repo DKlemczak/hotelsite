@@ -7,11 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class RoomTypesController extends Controller
+class RoomtypesController extends Controller
 {
     public function index()
     {
-        $roomtypes = DB::table('roomtypes')->get();
+        $roomtypes = Roomtypes::get();
         return view('dashboard.roomtypes.index', ['roomtypes' => $roomtypes]);
     }
 
@@ -22,7 +22,7 @@ class RoomTypesController extends Controller
 
     public function edit($id)
     {
-        $roomtype = DB::table('roomtypes')->where('id', $id)->first();
+        $roomtype = Roomtypes::where('id', $id)->first();
         return view('dashboard.roomtypes.edit')->with(['roomtype' => $roomtype]);
     }
 
