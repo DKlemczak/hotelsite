@@ -56,6 +56,9 @@
     </div>
     <div>
         <div class="h3 mt-5 mb-4" style="border-bottom: 1px solid #753c52; width: 100%">Komentarze</div>
+        <div id="comment-form">
+
+        </div>
         @foreach($room->comments as $comment)
         <div class=" mt-5 mb-2 ml-2">
             <strong>{!! $comment->user->name !!}</strong>

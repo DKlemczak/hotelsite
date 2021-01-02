@@ -50,3 +50,7 @@ Route::group(['middleware' => 'admin'], function ()
         'destroy' => 'dashboard.rooms.destroy'
     ]], ['except' => ['show']]);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
