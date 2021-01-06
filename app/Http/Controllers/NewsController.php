@@ -3,25 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Roomtypes;
+use App\Models\News;
 use App\Models\Comment;
 use Carbon\Carbon;
 use Auth;
 
-class OfferController extends Controller
+class NewsController extends Controller
 {
     public function index()
     {
-        $rooms = DB::table('roomtypes')->get();
-        return view('offer.index', ['rooms' => $rooms]);
+        $news = News::get();
+        return view('news.index', ['news' => $news]);
     }
 
     public function details($id)
     {
-        $room = Roomtypes::where('id', $id)->first();
+        $new = News::where('id', $id)->first();
 
-        return view('offer.details',['room' => $room]);
+        return view('news.details',['new' => $new]);
     }
 
     public function storecomment(Request $request, $id)
@@ -29,20 +28,20 @@ class OfferController extends Controller
         $user = Auth::user();
         $comment = new Comment;
         $comment->comment = $request->comment;
-        $comment->roomtypes_id = $id;
+        $comment->news_id = $id;
         $comment->created_at = date('Y-m-d');
         $comment->user_id = $user->id;
         $comment->save();
 
-        return redirect()->route('offer.details', ['id' => $id]);
+        return redirect()->route('news.details', ['id' => $id]);
     }
 
     public function destroycomment($comment_id)
     {
         $comment = Comment::find($comment_id);
-        $id = $comment->roomtypes_id;
+        $id = $comment->news_id;
         $comment->delete();
 
-        return redirect()->route('offer.details', ['id' => $id]);
+        return redirect()->route('news.details', ['id' => $id]);
     }
 }

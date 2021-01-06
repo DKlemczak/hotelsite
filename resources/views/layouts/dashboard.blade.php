@@ -42,6 +42,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dashboard.roomtags.index') }}">Panel tagów</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard.news.index') }}">Aktualności</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard.contact.index') }}">Dane kontaktowe</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

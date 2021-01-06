@@ -21,7 +21,15 @@ Route::get('/offer', "App\Http\Controllers\OfferController@index")->name("offer"
 Route::get('/offer/{id}',"App\Http\Controllers\OfferController@details")->name("offer.details");
 
 Route::post('/offer/{id}/addcomment',"App\Http\Controllers\OfferController@storecomment")->name("offer.details.addcomment");
-Route::get('/offer/{id}/destroycomment',"App\Http\Controllers\OfferController@destroycomment")->name("offer.details.deletecomment");
+Route::get('/offer/{id}/destroycomment',"App\Http\Controllers\OfferController@destroycomment")->name("offer.details.deletecomment")->middleware(['auth', 'admin']);
+
+Route::get('/news', "App\Http\Controllers\NewsController@index")->name("news");
+Route::get('/news/{id}', "App\Http\Controllers\NewsController@details")->name("news.details");
+
+Route::post('/news/{id}/addcomment',"App\Http\Controllers\NewsController@storecomment")->name("news.details.addcomment");
+Route::get('/news/{id}/destroycomment',"App\Http\Controllers\NewsController@destroycomment")->name("news.details.deletecomment")->middleware(['auth', 'admin']);
+
+Route::get('/contact', "App\Http\Controllers\ContactController@index")->name("contact");
 
 Route::group(['middleware' => 'admin'], function ()
 {
@@ -65,5 +73,28 @@ Route::group(['middleware' => 'admin'], function ()
         'edit'    => 'dashboard.rooms.edit',
         'update'  => 'dashboard.rooms.update',
         'destroy' => 'dashboard.rooms.destroy'
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
+
+    Route::resource('dashboard/contact', 'App\Http\Controllers\Dashboard\RoomsController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.rooms.index',
+        'create'  => 'dashboard.rooms.create',
+        'store'   => 'dashboard.rooms.store',
+        'edit'    => 'dashboard.rooms.edit',
+        'update'  => 'dashboard.rooms.update',
+        'destroy' => 'dashboard.rooms.destroy'
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
+
+    Route::resource('dashboard/news', 'App\Http\Controllers\Dashboard\NewsController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.news.index',
+        'create'  => 'dashboard.news.create',
+        'store'   => 'dashboard.news.store',
+        'edit'    => 'dashboard.news.edit',
+        'update'  => 'dashboard.news.update',
+        'destroy' => 'dashboard.news.destroy'
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
+
+    Route::resource('dashboard/contact', 'App\Http\Controllers\Dashboard\ContactController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.contact.index',
+        'update'  => 'dashboard.contact.update'
     ]], ['except' => ['show']])->middleware(['auth', 'admin']);
 });

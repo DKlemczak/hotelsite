@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class News extends Model
 {
     public $timestamps = false;
-    protected $table = 'comments';
-    public function roomtypes()
-    {
-        return $this->belongsTo('App\Models\Roomtypes');
-    }
+    protected $table = 'news';
 
-    public function news()
+    public function comments()
     {
-        return $this->belongsTo('App\Models\News');
+        return $this->hasMany(Comment::class);
     }
 
     public function user()
