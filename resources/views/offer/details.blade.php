@@ -87,9 +87,11 @@
         @foreach($room->comments as $comment)
         <div class=" mt-5 mb-2 ml-2">
             <strong>{!! $comment->user->name !!}</strong>
-            @if(Auth::user()->is_admin)
-            <button class="btn"><a href="{{ route('offer.details.deletecomment', $comment->id) }}">Usuń komentarz</a></button>
-            @endif
+			@auth
+				@if(Auth::user()->is_admin)
+				<button class="btn"><a href="{{ route('offer.details.deletecomment', $comment->id) }}">Usuń komentarz</a></button>
+				@endif
+			@endauth
         </div>
         <div class="shadow m-1 p-2"> 
             {!! $comment->comment !!}
