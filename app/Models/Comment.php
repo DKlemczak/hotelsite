@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    public $timestamps = false;
     public function roomtypes()
     {
         return $this->belongsTo('App\Models\Roomtypes');
