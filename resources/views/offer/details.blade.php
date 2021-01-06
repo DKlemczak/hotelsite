@@ -1,31 +1,38 @@
 @extends('layouts.app')
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <section class="content">
     <div class="row color h3 mb-0 p-3" >
         <div class="text-white" style="border-bottom: 2px solid #fff; width: 100%">
         {!! $room->DescriptionShort !!}
         </div>
     </div>
-    <div class="row color">
-        <div class="col-6 p-1 m-auto">
-            <img src="https://images.trvl-media.com/hotels/7000000/6370000/6361700/6361648/3b46cbf0.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium" class="img-fluid">
-        </div>
-        <div class="col-3">
-            <div class="row pt-1 pr-1 pb-1">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finteriordesignexplained.com%2Fimages%2Ffull-size%2F10%2Fcommunal-spaces-in-hotel-rooms-1.jpeg&f=1&nofb=1" class="img-fluid">
-            </div>
-            <div class="row pr-1 pb-1">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finteriordesignexplained.com%2Fimages%2Ffull-size%2F10%2Fcommunal-spaces-in-hotel-rooms-1.jpeg&f=1&nofb=1" class="img-fluid">
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="row pt-1 pr-1 pb-1">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finteriordesignexplained.com%2Fimages%2Ffull-size%2F10%2Fcommunal-spaces-in-hotel-rooms-1.jpeg&f=1&nofb=1" class="img-fluid">
-            </div>
-            <div class="row pr-1 pb-1">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finteriordesignexplained.com%2Fimages%2Ffull-size%2F10%2Fcommunal-spaces-in-hotel-rooms-1.jpeg&f=1&nofb=1" class="img-fluid">
-            </div>
-        </div>
+    <div class="row color pl-5 pr-5 pb-3">
+    <div id="carouselExampleControls" class="carousel slide mx-auto" data-ride="carousel">
+    <ol class="carousel-indicators">
+    @foreach($room->attachments as $attachment)
+      <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+    @endforeach
+    </ol>
+    <div class="carousel-inner" role="listbox">
+    @foreach($room->attachments as $attachment)
+       <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+           <img class="d-block img-fluid" src="{!! $attachment->data_uri !!}">
+       </div>
+    @endforeach
+    </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
     </div>
     <div class="row shadow-lg">
         <div class="col-9 pl-0 pt-3 pr-0 pb-3 text_justify" >
