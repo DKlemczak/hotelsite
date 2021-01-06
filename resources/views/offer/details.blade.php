@@ -53,7 +53,7 @@
                     <div class="pl-1">{!! $room->RoomSpace !!} os.</div>
                 </div>
             </div>
-            <div class="text-left h5">Wyposarzenie pokoju</div>
+            <div class="text-left h5">Wyposażenie pokoju</div>
             @foreach($room->roomtags as $tag)
             <div class="d-flex color shadow text-white m-1 pl-1"> 
                 {!! $tag->Name !!}
