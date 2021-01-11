@@ -12,7 +12,11 @@
     <div class="kapsle">
         @foreach($rooms as $room)
         <div class="indi_room shadow-lg m-auto">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finteriordesignexplained.com%2Fimages%2Ffull-size%2F10%2Fcommunal-spaces-in-hotel-rooms-1.jpeg&f=1&nofb=1" class="room_img p-2 img-fluid">
+            @foreach($room->attachments as $attachment)
+                @if ($loop->first)
+                    <img src="{!! $attachment->data_uri !!}"class="room_img p-2 img-fluid">
+                @endif
+            @endforeach
             <div class="room_info mb-4 pb-2">
                 <h3 class="description ml-2">{!! $room->DescriptionShort !!}</h3>
                 <h5 class="roomspace ml-2">Pokój dla {!! $room->RoomSpace !!} os.</h5>

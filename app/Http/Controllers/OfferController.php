@@ -13,7 +13,7 @@ class OfferController extends Controller
 {
     public function index()
     {
-        $rooms = DB::table('roomtypes')->get();
+        $rooms = Roomtypes::get();
         return view('offer.index', ['rooms' => $rooms]);
     }
 

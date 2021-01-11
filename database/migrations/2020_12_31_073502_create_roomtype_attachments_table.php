@@ -15,7 +15,7 @@ class CreateRoomtypeAttachmentsTable extends Migration
     {
         Schema::create('roomtype_attachments', function (Blueprint $table) {
             $table->id();
-            $table->text('data_uri');
+            $table->longText('data_uri');
             $table->unsignedBigInteger('roomtypes_id');
             $table->foreign('roomtypes_id')->references('id')->on('roomtypes');
         });
