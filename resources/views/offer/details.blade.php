@@ -32,7 +32,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-</div>
     </div>
     <div class="row shadow-lg">
         <div class="col-9 pl-0 pt-3 pr-0 pb-3 text_justify" >

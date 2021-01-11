@@ -7,8 +7,12 @@
     </div>
 </section>
 <section class="content">
-<div class="h1 text-center">Pokoje Hotelowe</div>
-<div class="h5 px-2 pb-4 text-center">Oferujemy szeroką gamę pokoi, aby spełnić wszystkie życzenia i potrzeby naszych gości. Dzięki różnym typom pokoi możemy zaoferować coś dla każdego podróżnika.</div>
+<div class="jumbotron p-3 p-md-5 text-white rounded color">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4">Pokoje Hotelowe</h1>
+      <p class="lead my-3">Oferujemy szeroką gamę pokoi, aby spełnić wszystkie życzenia i potrzeby naszych gości. Dzięki różnym typom pokoi możemy zaoferować coś dla każdego podróżnika.</p>
+    </div>
+</div>
     <div class="kapsle">
         @foreach($rooms as $room)
         <div class="indi_room shadow-lg m-auto">
