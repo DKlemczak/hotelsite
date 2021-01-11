@@ -7,11 +7,15 @@
     </div>
 </section>
 <section class="content">
-<div class="h1 text-center">Pokoje Hotelowe</div>
-<div class="h5 px-2 pb-4 text-center">Oferujemy szeroką gamę pokoi, aby spełnić wszystkie życzenia i potrzeby naszych gości. Dzięki różnym typom pokoi możemy zaoferować coś dla każdego podróżnika.</div>
+<div class="jumbotron p-3 p-md-5 text-white rounded color">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4">Pokoje Hotelowe</h1>
+      <p class="lead my-3">Oferujemy szeroką gamę pokoi, aby spełnić wszystkie życzenia i potrzeby naszych gości. Dzięki różnym typom pokoi możemy zaoferować coś dla każdego podróżnika.</p>
+    </div>
+</div>
     <div class="kapsle">
         @foreach($rooms as $room)
-        <div class="indi_room shadow-lg m-auto">
+        <div class="indi_room shadow m-auto">
             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finteriordesignexplained.com%2Fimages%2Ffull-size%2F10%2Fcommunal-spaces-in-hotel-rooms-1.jpeg&f=1&nofb=1" class="room_img p-2 img-fluid">
             <div class="room_info mb-4 pb-2">
                 <h3 class="description ml-2">{!! $room->DescriptionShort !!}</h3>
