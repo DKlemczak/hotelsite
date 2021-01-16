@@ -24,7 +24,6 @@ class RoomtypeAttachmentsController extends Controller
 
     public function store(Request $request)
     {
-
         $roomtypeattachment = new Roomtype_attachments;
         $image = $request->photo->path();
         $imageData = base64_encode(file_get_contents($image));

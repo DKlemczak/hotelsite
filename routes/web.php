@@ -30,6 +30,7 @@ Route::post('/news/{id}/addcomment',"App\Http\Controllers\NewsController@storeco
 Route::get('/news/{id}/destroycomment',"App\Http\Controllers\NewsController@destroycomment")->name("news.details.deletecomment")->middleware(['auth', 'admin']);
 
 Route::get('/contact', "App\Http\Controllers\ContactController@index")->name("contact");
+Route::post('/contact', "App\Http\Controllers\ContactController@store")->name("contact.save");
 
 Route::group(['middleware' => 'admin'], function ()
 {
