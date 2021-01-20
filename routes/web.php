@@ -19,6 +19,11 @@ Route::get('/', "App\Http\Controllers\StaticController@index")->name("index");
 
 Route::get('/offer', "App\Http\Controllers\OfferController@index")->name("offer");
 Route::get('/offer/{id}',"App\Http\Controllers\OfferController@details")->name("offer.details");
+Route::post('/offer/addtocart',"App\Http\Controllers\CartController@AddToCart")->name("offer.addtocart");
+
+Route::get('/cart',"App\Http\Controllers\CartController@index")->name("cart");
+Route::get('/cart/store',"App\Http\Controllers\CartController@store")->name("cart.store");
+Route::get('/cart/removefromCart/{room}/{id}',"App\Http\Controllers\CartController@removefromCart")->name("cart.remove");
 
 Route::post('/offer/{id}/addcomment',"App\Http\Controllers\OfferController@storecomment")->name("offer.details.addcomment");
 Route::get('/offer/{id}/destroycomment',"App\Http\Controllers\OfferController@destroycomment")->name("offer.details.deletecomment")->middleware(['auth', 'admin']);
@@ -31,6 +36,8 @@ Route::get('/news/{id}/destroycomment',"App\Http\Controllers\NewsController@dest
 
 Route::get('/contact', "App\Http\Controllers\ContactController@index")->name("contact");
 Route::post('/contact', "App\Http\Controllers\ContactController@store")->name("contact.save");
+
+Route::get('/user', "App\Http\Controllers\UserController@index")->name("user");
 
 Route::group(['middleware' => 'admin'], function ()
 {

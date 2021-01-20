@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <section class="content">
     <div class="row color h3 mb-0 p-3" >
         <div class="text-white" style="border-bottom: 2px solid #fff; width: 100%">
@@ -54,10 +51,10 @@
             </div>
             <div class="text-left h5">Wyposażenie pokoju</div>
             @foreach($room->roomtags as $tag)
-            <div class="d-flex color shadow text-white m-1 pl-1"> 
+            <div class="d-flex color shadow text-white m-1 pl-1">
                 {!! $tag->Name !!}
-            </div>    
-            @endforeach    
+            </div>
+            @endforeach
         </div>
     </div>
     <div>
@@ -92,10 +89,10 @@
 				@endif
 			@endauth
         </div>
-        <div class="shadow m-1 p-2"> 
+        <div class="shadow m-1 p-2">
             {!! $comment->comment !!}
-        </div>    
-         @endforeach 
+        </div>
+         @endforeach
     </div>
 </section>
 @endsection
