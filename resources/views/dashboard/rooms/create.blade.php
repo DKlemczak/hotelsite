@@ -4,9 +4,13 @@
 <form enctype="multipart/form-data" action="{{ route('dashboard.rooms.store') }}" method="post" accept-charset="utf-8">
     @csrf
     <div class="container">
-        <div class="row no-gutters mb-4">
+        <div class="text-center text-white rounded color">
+            <h1 class="display-4">Panel pokojów</h1>
+        </div>
+        <div class="container" style="width:50%;">
+        <div class="row no-gutters mb-2">
             <label for="Number" class="col-form-label">Numer: </label>
-            <div>
+            <div class="color ml-auto">
                 <input id="Number" type="number" class="form-control" name="Number" value="" required>
                 @if ($errors->has('Number'))
                     <span class="help-block">
@@ -17,7 +21,7 @@
         </div>
         <div class="row no-gutters mb-4">
             <label for="roomtypes_id" class="col-form-label">Typ pokoju: </label>
-            <div>
+            <div class="ml-auto mt-auto mb-auto">
                 <select name="roomtypes_id" required>
                     @foreach ($roomtypes as $roomtype)
                         <option value="{!! $roomtype->id !!}">{!! $roomtype->Name !!}</option>
@@ -30,11 +34,10 @@
                 @endif
             </div>
         </div>
-        <div class="form-group col-12 row mx-0">
-            <div class="d-flex justify-content-center mr-1">
-                <button type="submit" class="btn btn-lg btn-secondary">Zapisz</button>
-            </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-lg btn-secondary">Zapisz</button>
         </div>
+    </div>
     </div>
 </form>
 @endsection

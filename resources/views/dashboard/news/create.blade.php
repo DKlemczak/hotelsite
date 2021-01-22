@@ -4,9 +4,13 @@
 <form enctype="multipart/form-data" action="{{ route('dashboard.news.store') }}" method="post" accept-charset="utf-8">
     @csrf
     <div class="container">
-        <div class="row no-gutters mb-4">
+        <div class="text-center text-white rounded color">
+            <h1 class="display-4">Aktualności</h1>
+        </div>
+        <div class="container" style="width:50%;">
+        <div class="row no-gutters mb-2">
             <label for="title" class="col-form-label">Tytuł: </label>
-            <div>
+            <div class="color ml-auto">
                 <input id="title" type="text" class="form-control" name="title" value="" required>
                 @if ($errors->has('title'))
                     <span class="help-block">
@@ -15,9 +19,9 @@
                 @endif
             </div>
         </div>
-        <div class="row no-gutters mb-4">
+        <div class="row no-gutters mb-2">
             <label for="content" class="col-form-label">Zawartość: </label>
-            <div>
+            <div class="color ml-auto">
                 <textarea class="form-control" name="content" style="max-width: 100%;" rows="15"></textarea>
                 @if ($errors->has('content'))
                     <span class="help-block">
@@ -26,11 +30,11 @@
                 @endif
             </div>
         </div>
-        <div class="form-group col-12 row mx-0">
-            <div class="d-flex justify-content-center mr-1">
+            <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-lg btn-secondary">Zapisz</button>
             </div>
         </div>
+    </div>    
     </div>
 </form>
 @endsection

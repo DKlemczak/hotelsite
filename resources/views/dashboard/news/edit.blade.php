@@ -1,13 +1,18 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<div class="container">
+    <div class="text-center text-white rounded color">
+        <h1 class="display-4">Aktualności</h1>
+    </div>
 <form enctype="multipart/form-data" action="{{ route('dashboard.news.update', $news->id) }}" method="post" accept-charset="utf-8">
+
     @csrf
     @method('PATCH')
-    <div class="container">
-        <div class="row no-gutters mb-4">
+    <div class="container" style="width:50%;">
+        <div class="row no-gutters mb-2">
             <label for="title" class="col-form-label">Tytuł: </label>
-            <div>
+            <div class="color ml-auto">
                 <input id="title" type="text" class="form-control" name="title" value="{{$news->title}}" required>
                 @if ($errors->has('title'))
                     <span class="help-block">
@@ -16,9 +21,9 @@
                 @endif
             </div>
         </div>
-        <div class="row no-gutters mb-4">
+        <div class="row no-gutters mb-2">
             <label for="content" class="col-form-label">Zawartość: </label>
-            <div>
+            <div class="color ml-auto">
                 <textarea class="form-control" name="content" style="max-width: 100%;" rows="15">{{!! $news ->content !!}}</textarea>
                 @if ($errors->has('content'))
                     <span class="help-block">
@@ -27,15 +32,11 @@
                 @endif
             </div>
         </div>
-        <div class="form-group col-12 row mx-0">
-            <div class="d-flex justify-content-center mr-1">
-                <button type="submit" class="btn btn-lg btn-secondary">Zapisz</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-lg btn-secondary mr-1">Zapisz</button>
+                <button type="button" onclick="location.href='{{ route('dashboard.news.index')}}'" class="btn btn-lg btn-secondary ml-1">Zamknij</button>
             </div>
-            <div class="d-flex justify-content-center ml-1">
-                <button type="button" onclick="location.href='{{ route('dashboard.news.index')}}'" class="btn btn-lg btn-secondary">Zamknij</button>
-            </div>
-        </div>
     </div>
 </form>
-
+</div>
 @endsection
