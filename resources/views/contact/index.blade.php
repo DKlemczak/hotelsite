@@ -8,22 +8,20 @@
 </section>
 <section class="content">
     <div class="row">
-        <div class="col-4">
-            <div class="row">
-                @if(isset($contact))
-                    <p>Miasto {!!$contact->city!!}</p>
-                    <p>Kod pocztowy {!!$contact->postcode!!}</p>
-                    <p>Poczta {!!$contact->post!!}</p>
-                    <p>Ulica {!!$contact->street!!}</p>
-                    <p>Numer domu {!!$contact->building_numer!!}</p>
-                    <p>Numer do recepcji {!!$contact->reception_number!!}</p>
-                    <p>Numer obsługi klienta {!!$contact->customer_service_number!!}</p>
-                    <p>Email {!!$contact->email!!}</p>
-                @endif
-            </div>
+        <div class="col-3">
+            @if(isset($contact))
+                <p>Miasto {!!$contact->city!!}</p>
+                <p>Kod pocztowy {!!$contact->postcode!!}</p>
+                <p>Poczta {!!$contact->post!!}</p>
+                <p>Ulica {!!$contact->street!!}</p>
+                <p>Numer domu {!!$contact->building_numer!!}</p>
+                <p>Numer do recepcji {!!$contact->reception_number!!}</p>
+                <p>Numer obsługi klienta {!!$contact->customer_service_number!!}</p>
+                <p>Email {!!$contact->email!!}</p>
+            @endif
         </div>
-        <div class="col-8">
-            <div class="row">
+        <div class="col-9">
+            <div class="row text-center justify-content-center">
                 <form enctype="multipart/form-data" method="post" action="{{ route('contact.save') }}" accept-charset="utf-8">
                     @csrf
                     <div class="form-group">
@@ -55,14 +53,14 @@
                     </div>
                     <div class="form-group">
                         <label>Wiadomość</label>
-                        <textarea class="form-control" name="message" id="message" rows="4" required></textarea>
+                        <textarea class="form-control" name="message" id="message" rows="4" cols="50" required></textarea>
                         @if ($errors->has('message'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('message') }}</strong>
                             </span>
                         @endif
                     </div>
-                    <input type="submit" name="send" value="Submit" class="btn btn-dark btn-block">
+                    <input type="submit" name="send" value="Wyślij" class="btn btn-dark btn-block">
                 </form>
             </div>
         </div>

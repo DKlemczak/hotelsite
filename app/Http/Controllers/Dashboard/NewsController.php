@@ -28,12 +28,13 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
+        $user = Auth::user();
         $news = new News;
         $news->title = $request->title;
         $news->content = $request->content;
         $news->created_at = date('Y-m-d');;
         $news->user_id = $user->id;;
-        $room->save();
+        $news->save();
 
         return redirect()->route('dashboard.news.index');
     }
